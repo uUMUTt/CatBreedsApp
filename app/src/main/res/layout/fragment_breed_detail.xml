@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cat"
+            type="com.example.catbreeds.model.Cat" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".view.FavoriteBreedDetailFragment">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarBreedDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:title="@{cat.breed}" />
+
+            <ToggleButton
+                android:id="@+id/tgBreedDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.6"
+                android:background="@drawable/toggle_selector"
+                android:checked="@{cat.favorite}"
+                android:textOff=""
+                android:textOn="" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivCatImageBreedDetail"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/linearLayoutDetail"
+            android:layout_centerHorizontal="true"
+            android:addImage="@{cat}"
+            android:contentDescription="@string/content_cat_image"
+            android:src="@drawable/base_cat_image" />
+
+
+        <TextView
+            android:id="@+id/tvDescriptionBreedDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivCatImageBreedDetail"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@{cat.detail}"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvOriginBreedDetail"
+            android:layout_marginStart="15dp"
+            android:text="@string/title_origin"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tvOriginBreedDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDescriptionBreedDetail"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="@{cat.origin}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvWikipediaBreedDetail"
+            android:layout_marginStart="15dp"
+            android:text="@string/title_wikipedia"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvWikipediaBreedDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvOriginBreedDetail"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@{cat.wikipediaLink}"
+            android:textColor="@color/purple_700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvLifeSpanBreedDetail"
+            android:layout_marginStart="15dp"
+            android:text="@string/title_life_span"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tvLifeSpanBreedDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvWikipediaBreedDetail"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="@{cat.lifeSpan}" />
+
+
+    </RelativeLayout>
+
+</layout>

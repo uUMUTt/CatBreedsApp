@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.catbreeds.view.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_catBreedListFragment"
+            app:destination="@id/catBreedListFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/catBreedListFragment"
+        android:name="com.example.catbreeds.view.CatBreedListFragment"
+        android:label="fragment_cat_breed_list"
+        tools:layout="@layout/fragment_cat_breed_list" >
+        <action
+            android:id="@+id/action_catBreedListFragment_to_favoriteCatBreedListFragment"
+            app:destination="@id/favoriteCatBreedListFragment" />
+        <action
+            android:id="@+id/action_catBreedListFragment_to_breedDetailFragment"
+            app:destination="@id/breedDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/catBreedDetailFragment"
+        android:name="com.example.catbreeds.view.FavoriteBreedDetailFragment"
+        android:label="fragment_cat_breed_detail"
+        tools:layout="@layout/fragment_favorite_breed_detail" >
+        <action
+            android:id="@+id/action_catBreedDetailFragment_to_favoriteCatBreedListFragment"
+            app:destination="@id/favoriteCatBreedListFragment"
+            app:popUpTo="@id/favoriteCatBreedListFragment" />
+        <argument
+            android:name="cat"
+            app:argType="com.example.catbreeds.model.Cat" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteCatBreedListFragment"
+        android:name="com.example.catbreeds.view.FavoriteCatBreedListFragment"
+        android:label="fragment_favorite_cat_breed_list"
+        tools:layout="@layout/fragment_favorite_cat_breed_list" >
+        <action
+            android:id="@+id/action_favoriteCatBreedListFragment_to_catBreedDetailFragment"
+            app:destination="@id/catBreedDetailFragment" />
+        <action
+            android:id="@+id/action_favoriteCatBreedListFragment_to_catBreedListFragment"
+            app:destination="@id/catBreedListFragment"
+            app:popUpTo="@id/catBreedListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/breedDetailFragment"
+        android:name="com.example.catbreeds.view.BreedDetailFragment"
+        android:label="BreedDetailFragment" >
+        <action
+            android:id="@+id/action_breedDetailFragment_to_catBreedListFragment"
+            app:destination="@id/catBreedListFragment"
+            app:popUpTo="@id/catBreedListFragment" />
+        <argument
+            android:name="cat"
+            app:argType="com.example.catbreeds.model.Cat" />
+    </fragment>
+</navigation>
